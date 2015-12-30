@@ -1,7 +1,7 @@
-Intro to AngularJS workshop, developed and taught by Alexandra Hoefinger for GDI Philly
+Intro to AngularJS workshop, based on Alexandra Hoefinger's [gdi-angular curriculum](https://github.com/ahoef/gdi-angular) and taught by Alexandra Atzl for GDI Rochester.
 
-Slides: http://ahoef.co/gdi-angular/slides
-Demo Files: http://ahoef.co/gdi-angular/demo-files.zip
+Slides:
+Demo Files:
 
 Outline:
 - Overview of MVC patterns

@@ -16,7 +16,7 @@
         <!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
 
 		<!-- If use the PDF print sheet so students can print slides-->
-		
+
 		<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
 
 		<!--[if lt IE 9]>
@@ -34,22 +34,20 @@
                 <img class="angular-logo" src="images/AngularJS-Shield-large.png" >
                 <div class="intro-slide-container">
                     <h3>Intro to AngularJS</h3>
-                    <p>GDI Philly</p>
+                    <p>GDI Rochester</p>
                     <br>
                     <br>
-                    <p>Alexandra Hoefinger</p>
-                    <a href="http://www.twitter.com/ahoefinger">@ahoefinger</a>
+                    <p>Alexandra Atzl</p>
+                    <!-- <a href="http://www.twitter.com/alexandraatzl">@alexandraatzl</a> -->
                 </div>
             </section>
 
             <section>
                 <br>
-<!--                 <p>Wifi: </p>
-                <p>Password: </p> -->
+                <p>Wifi: BNGuest</p>
+                <p>Password: </p>
                 <br>
                 <br>
-                <a href="http://ahoef.co/gdi-angular/slides">ahoef.co/gdi-angular/slides</a><br><br>
-                <a href="http://ahoef.co/gdi-angular/demo-files.zip">ahoef.co/gdi-angular/demo-files.zip</a>
             </section>
 
             <section>
@@ -106,12 +104,12 @@
           </ul>
           </div>
         </section>
-        
+
         <section class="smaller-type">
             <h3>What is AngularJS?</h3>
             <br>
-            <ul> 
-                <li class="fragment">A client-side JavaScript framework for extending HTML in small &#8594; large apps</li>
+            <ul>
+                <li class="fragment">A client-side JavaScript framework for extending HTML in small or large applications</li>
                 <li class="fragment">Initially released in 2009 by Google</li>
                 <li class="fragment">Used in production by Google, Virgin America, HBO, msnbc, Nike, Urban Outfitters, & more</li>
                 <li class="fragment">Known for data-binding, directives, dependency injection, & more</li>
@@ -122,7 +120,7 @@
         <section>
             <h3>What is a MV* framework?</h3>
             <br>
-            <ul> 
+            <ul>
                 <li class="fragment">A variation of an MVC (Model View Controller)</li>
                         <li class="fragment">Model &mdash; a type of data to model, like a user, account, photo, or note</li>
                         <li class="fragment">View &mdash; the markup & templates for the UI</li>
@@ -141,16 +139,16 @@
         <section>
             <h3>What is a MV* framework?</h3>
             <br>
-            <ul> 
+            <ul>
                 <li class="fragment">Main features are some combination of routing, data binding, templates/views, models & data access</li>
-            
+
                 <li class="fragment">Can be client- or server-side, and not specific to JavaScript</li>
                 <li class="fragment"><a href="http://www.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">Journey Through the JavaScript MVC Jungle</a></li>
                 <li class="fragment"><a href="http://todomvc.com/">todomvc.com</a></li>
             </ul>
         </section>
 
-        <section>
+        <!-- <section>
             <h3>What type of MV* is Angular?</h3>
             <br>
             <ul>
@@ -158,7 +156,7 @@
                 <li class="fragment">This is mainly because of how it's evolved since release, and how developers have implemented Angular apps</li>
                 <li class="fragment">Many agree that it is an MVW (Model View Whatever)</li>
             </ul>
-        </section>
+        </section> -->
 
         <section>
             <h3>Why Use Angular?</h3>
@@ -267,7 +265,7 @@
     &lt;label>Name:&lt;/label&gt;
     &lt;input type="text" ng-model="user.status"&gt;
     &lt;hr&gt;
-    &lt;h1 class="status-text-{{user.status}}"&gt;Your status is: 
+    &lt;h1 class="status-text-{{user.status}}"&gt;Your status is:
     {{user.status}}!&lt;/h1&gt;
 &lt;/body &gt;
                 </code></pre>
@@ -299,7 +297,7 @@
 &lt;/body &gt;
                 </code></pre>
             </section>
-       
+
             <section>
 				<h3>More Built-In Directives: <br> ng-if</h3>
                 <br>
@@ -310,7 +308,7 @@
     &lt;p ng-if="'Sal' === 'Sal'"&gt;True!&lt;/p&gt;
     &lt;p ng-if="'Sal' === 'Jo'"&gt;False!&lt;/p&gt;
 &lt;/body &gt;
-                </code></pre>			
+                </code></pre>
 			</section>
 
             <section>
@@ -412,7 +410,7 @@
         &lt;button ng-click="isOpen = !isOpen"&gt;
 
             &lt;i class="fa" ng-class="{
-                'fa-caret-square-o-down': !isOpen, 
+                'fa-caret-square-o-down': !isOpen,
                 'fa-caret-square-o-up': isOpen,}"&gt;
             &lt;/i&gt;
 
@@ -425,7 +423,7 @@
     &lt;/nav&gt;
 &lt;/body &gt;</code></pre>
                 <br>
-            </section>  
+            </section>
 
             <section>
                 <h3>Exercise</h3>
@@ -508,7 +506,7 @@
 
     &lt;section ng-controller="MainController as mainCtrl"&gt;
         &lt;p&gt;My cat's name is {{mainCtrl.cat.name}}&lt;/p&gt;
-        &lt;p&gt;She has {{mainCtrl.cat.eyes}} eyes and she's 
+        &lt;p&gt;She has {{mainCtrl.cat.eyes}} eyes and she's
         {{mainCtrl.cat.age}} years old.&lt;/p&gt;
     &lt;/section&gt;
 
@@ -582,7 +580,7 @@
     &lt;section ng-controller="MainController as mainCtrl"&gt;
         &lt;article ng-repeat="cat in mainCtrl.cats"&gt;
             &lt;p&gt;My cat's name is {{cat.name}}&lt;/p&gt;
-            &lt;p&gt;She has {{cat.eyes}} eyes and she's 
+            &lt;p&gt;She has {{cat.eyes}} eyes and she's
             {{cat.age}} years old.&lt;/p&gt;
         &lt;/article&gt;
     &lt;/section&gt;
@@ -603,7 +601,7 @@
                 <h3>Controllers</h3>
                     <p>Functions can also be stored as properties</p>
                 <pre><code >
-//app.js                  
+//app.js
 angular
     .module('todoApp', [])
     .controller('TodoListController', function() {
@@ -656,7 +654,7 @@ angular
                 <ul>
                     <li class="fragment">Dependencies are standalone modules that can be pulled into your project for different uses</li>
                     <li class="fragment">They can be included as external files in script tags, or if you're using grunt/gulp, usually they can be included as node modules</li>
-                    <li class="fragment"><a href="http://gregpike.net/demos/angular-local-storage/demo/demo.html">Angular Local Storage</a> is a popular module that uses the browser's local storage to persist your data without saving it to a database</li> 
+                    <li class="fragment"><a href="http://gregpike.net/demos/angular-local-storage/demo/demo.html">Angular Local Storage</a> is a popular module that uses the browser's local storage to persist your data without saving it to a database</li>
                 </ul>
             </section>
 
@@ -665,7 +663,7 @@ angular
  <!--                <br>
 <pre><code>&lt;script src="js/angular.localstorage.js"&gt;&lt;script&gt;</code></pre>
                 <br> -->
-                <pre><code style="max-height: 460px">                 
+                <pre><code style="max-height: 460px">
 angular.module('todoApp', ['LocalStorageModule'])
     .controller('TodoListController', function(localStorageService) {
         var todoList = this;
@@ -712,7 +710,7 @@ angular.module('todoApp', ['LocalStorageModule'])
                 <ul>
                     <li class="fragment"><a href="https://docs.angularjs.org/guide/scope">Angular scope</a> is an object that refers to the application model</li>
                     <li class="fragment">In this workshop so far, we've been avoiding using <code>$scope</code> in favor of using <code>this</code> in our controllers to reference the application model</li>
-                    <li class="fragment">That's mainly because the <code>$scope</code> object is being phased out of Angular, and using <code>this</code> with <a href="http://toddmotto.com/digging-into-angulars-controller-as-syntax/">'controller as' syntax</a> is now considered best practice</li> 
+                    <li class="fragment">That's mainly because the <code>$scope</code> object is being phased out of Angular, and using <code>this</code> with <a href="http://toddmotto.com/digging-into-angulars-controller-as-syntax/">'controller as' syntax</a> is now considered best practice</li>
                 </ul>
             </section>
 
@@ -722,13 +720,13 @@ angular.module('todoApp', ['LocalStorageModule'])
                 <ul>
                     <li class="fragment">That said, at this point, we do still need to use the <code>$scope</code> object if we want to use some of the cool Angular features that come with it</li>
                     <li class="fragment">For example, <code>$watch</code> is an API that watches/listens for changes in user input, and can run callback functions when changes occur</li>
-                    <li class="fragment">We can use <code>$scope.$watch</code> to save our checked off todo list items to local storage</li> 
+                    <li class="fragment">We can use <code>$scope.$watch</code> to save our checked off todo list items to local storage</li>
                 </ul>
             </section>
 
             <section>
                 <h3>$scope.$watch</h3>
-                <pre><code style="max-height: 460px">                 
+                <pre><code style="max-height: 460px">
 angular.module('todoApp', ['LocalStorageModule'])
     .controller('TodoListController', function($scope, localStorageService) {
         var todoList = this;
@@ -752,7 +750,7 @@ angular.module('todoApp', ['LocalStorageModule'])
                 </code></pre>
             </section>
 
-            
+
           <section>
             <h3>From here onward...</h3>
             <br>
@@ -781,15 +779,16 @@ angular.module('todoApp', ['LocalStorageModule'])
         <section>
           <h3>Next Steps</h3>
           <ul>
-            <li class="fragment">Read Up!
-              <ul><li><a href="https://www.ng-book.com/">ng-book: The Complete Book on AngularJS</a></li>
-                <li><a href="http://www.ng-newsletter.com/">ng-newsletter</a></li></ul>
-            </li>
             <li class="fragment">Practice!
-              <ul><li><a href="http://www.codecademy.com/learn/learn-angularjs">Codeacademy AngularJS Course</a></li>
-              <li><a href="http://teamtreehouse.com/library/angularjs">Treehouse AngularJS Course</a></li>
-              <li><a href="https://www.codeschool.com/paths/javascript">Beginner & Intermediate AngularJS Course on CodeSchool</a></li>
-              <li><a href="http://www.cheatography.com/proloser/cheat-sheets/angularjs/">AngularJS Cheatsheet</a></li></ul>
+              <ul>
+                  <li><a href="http://luxiyalu.com/guide-to-self-teaching-angularjs/">Guide to Self-teaching AngularJS</a></li>
+                  <li><a href="http://www.codecademy.com/learn/learn-angularjs">Codeacademy AngularJS Course</a></li>
+                  <li><a href="http://teamtreehouse.com/library/angularjs">Treehouse AngularJS Course</a></li>
+                  <li><a href="https://www.codeschool.com/paths/javascript">Beginner & Intermediate AngularJS Course on CodeSchool</a></li>
+                  <li><a href="http://www.alexandraatzl.com/ngVegas2015/">Adopting Angular in Existing Applications</a></li>
+                  <li><a href="http://www.cheatography.com/proloser/cheat-sheets/angularjs/">AngularJS Cheatsheet</a></li>
+                  <li><a href="https://github.com/jmcunningham/AngularJS-Learning">AngularJS Learning Resources</a></li>
+              </ul>
             </li>
           </ul>
         </section>
@@ -814,17 +813,9 @@ angular.module('todoApp', ['LocalStorageModule'])
         <section>
           <h3>Thank You!</h3>
           <br>
-          <br>
-          <a href="http://goo.gl/forms/gsAlUKdqfS">http://goo.gl/forms/gsAlUKdqfS</a>
-          <br>
-          <br>
-          <br>
-          <!-- <h4 class="center">Get in touch!</h4> -->
-          <p class="center"><a href="http://twitter.com/ahoefinger">@ahoefinger</a></p>
-          <p class="center">alexandra.hoefinger@gmail.com</a</p>
         </section>
 
- 
+
 			</div><!-- Close .slides -->
   		<footer>
 <!--         <div class="copyright">

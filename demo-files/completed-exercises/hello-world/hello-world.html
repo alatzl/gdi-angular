@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 	</head>
 
 	<body ng-app>
@@ -23,25 +23,25 @@
 
 	    <!-- will render: a list of 4 sentences, each starting with the name of a TV show from the array, followed by the hardcoded text after {{item}} -->
 	    <ul>
-	        <li ng-repeat="item in ['The Wire', 'True Detective', 'Broad City', 'The Fall']">
+	        <li ng-repeat="item in ['Parks and Recreation', 'Friends', 'The Walking Dead', 'Castle']">
 	            {{item}} is an excellent TV show.
 	        </li>
 	    </ul>
 
 
 	    <!-- this image will show, since it's true that 'rygo' === 'rygo' -->
-	    <img src="https://s-media-cache-ak0.pinimg.com/236x/b0/76/50/b076508aeb971785d75c1d236bd1149b.jpg" class="image1" ng-show="'rygo' === 'rygo'"> 
+	    <img src="http://siennabellini.com/wp-content/uploads/2015/03/americas-sweetheart-jennifer-lawrence-shows-us-how-to-look-the-part-200x300.jpg" class="image1" ng-show="'jennifer' === 'jennifer'">
 
 
 	    <!-- this image will not show, since it's false that 'rygo' === 'RYGO' -->
-	    <img src="http://www.hollywoodreporter.com/sites/default/files/imagecache/300_portrait/2015/01/ryan_gosling.jpg" class="image2" ng-show="'rygo' === 'RYGO'"> 
+	    <img src="http://www.hollywoodreporter.com/sites/default/files/imagecache/300_portrait/2015/01/ryan_gosling.jpg" class="image2" ng-show="'jennifer' === 'JENNIFER'">
 
 
 	    <!-- will render a button- clicking it will toggle an image as the value of 'isClicked' changes-->
 	    <section ng-init="isClicked = false">
 	    	<button ng-click="isClicked = !isClicked">Click here!</button>
 	    	<br>
-	    	<img src="http://i.dailymail.co.uk/i/pix/2014/01/31/article-0-1B181EF000000578-786_634x398.jpg" ng-show="isClicked">
+	    	<img src="https://www.walldevil.com/wallpapers/a34/thumb/cute-wallpaper-backgrounds-kittens-baby-cutebabykittens.jpg" ng-show="isClicked">
 	    </section>
 
 	</body>

@@ -122,10 +122,10 @@
             <br>
             <ul>
                 <li class="fragment">A variation of an MVC (Model View Controller)</li>
-                        <li class="fragment">Model &mdash; a type of data to model, like a user, account, photo, or note</li>
-                        <li class="fragment">View &mdash; the markup & templates for the UI</li>
-                        <li class="fragment">Controller &mdash; handles input & updates state of model</li>
-                    <li class="fragment">MVC, MVVM, MVVMCS, ...</li>
+                <li class="fragment">Model &mdash; a type of data to model, like a user, account, photo, or note</li>
+                <li class="fragment">View &mdash; the markup & templates for the UI</li>
+                <li class="fragment">Controller &mdash; handles input & updates state of model</li>
+                <li class="fragment">MVC, MVVM, MVVMCS, ...</li>
 
             </ul>
         </section>
@@ -178,8 +178,8 @@
             <p>The app's markup: <a href="https://github.com/ahoef/angular-todo-list-app/blob/master/index.html">github.com/ahoef/angular-todo-list-app/blob/master/index.html</a></p>
             <br>
             <ul>
-                <li class="fragment">You'll notice {{ }} and attributes beginning with ng-</li>
-                <li class="fragment">Those are the key components of an Angular View!</li>
+              <li class="fragment">You'll notice {{ }} and attributes beginning with ng-</li>
+              <li class="fragment">Those are the key components of an Angular View!</li>
             </ul>
         </section>
 
@@ -188,17 +188,14 @@
           <br>
           <ul>
             <li ><a href="https://code.angularjs.org/">Download</a> and serve local file</li>
-        </ul>
-<pre><code>&lt;script src="js/angular.min.js"&gt;&lt;script&gt;</code></pre>
-            <br>
-            <p>OR</p>
-            <br>
-              <ul>
-                <li>Use a content distribution network for a cached file</li>
-              </ul>
-              <pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"&gt;&lt;/script&gt;</code></pre>
-            </li>
           </ul>
+<pre><code>&lt;script src="js/angular.min.js"&gt;&lt;script&gt;</code></pre>
+
+          <p>OR</p>
+          <ul>
+            <li>Use a content distribution network for a cached file</li>
+          </ul>
+<pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"&gt;&lt;/script&gt;</code></pre>
         </section>
 
             <section>
@@ -213,7 +210,7 @@
 				</code></pre>
                 <br>
                 <p><a href="https://docs.angularjs.org/api/ng/directive/ngApp">ng-app</a> is a required directive used to identify the root element and determine scope</p>
-                <!-- <small>(We'll cover what this code does shortly!)</small> -->
+                <small>(We'll cover what this code does shortly!)</small>
             </section>
 
             <section>
@@ -336,33 +333,11 @@
             </section>
 
             <section>
-                <h3>More Built-In Directives: <br> ng-init</h3>
-                <p><code>ng-init</code> sets an initial value</p>
-                <pre><code>&lt;head&gt;
-    &lt;!-- add icon font library --&gt;
-    &lt;link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"&gt;
-&lt;/head&gt;
-
-&lt;body ng-app&gt;
-    &lt;nav ng-init="isOpen = false" class="mobile-nav"&gt;
-        &lt;button&gt;&lt;i class="fa fa-bars"&gt;&lt;/i&gt;&lt;/button&gt;
-        &lt;ul ng-show="isOpen"&gt;
-            &lt;li&gt;Home&lt;/li&gt;
-            &lt;li&gt;About&lt;/li&gt;
-            &lt;li&gt;Blog&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/nav&gt;
-&lt;/body &gt;
-                </code></pre>
-                <br>
-            </section>
-
-            <section>
                 <h3>More Built-In Directives: <br> ng-click</h3>
                 <p>Angular's click listener</p>
                 <pre><code>
 &lt;body ng-app&gt;
-    &lt;nav ng-init="isOpen = false" class="mobile-nav"&gt;
+    &lt;nav class="mobile-nav"&gt;
         &lt;button ng-click="isOpen = !isOpen"&gt;
             &lt;i class="fa fa-bars"&gt;&lt;/i&gt;
         &lt;/button&gt;
@@ -383,7 +358,7 @@
                 <p><code>ng-class</code> conditionally adds a class based on value</p>
                 <pre><code>
 &lt;body ng-app&gt;
-    &lt;nav ng-init="isOpen = false" class="mobile-nav"&gt;
+    &lt;nav class="mobile-nav"&gt;
 
         &lt;p ng-class="{'highlight': isOpen}"&gt;My Menu&lt;/p&gt;
 
@@ -406,7 +381,7 @@
                 <h3>More Built-In Directives: <br> ng-class</h3>
                 <p>Here's another example:</p>
                 <pre><code>&lt;body ng-app&gt;
-    &lt;nav ng-init="isOpen = false" class="mobile-nav"&gt;
+    &lt;nav class="mobile-nav"&gt;
         &lt;button ng-click="isOpen = !isOpen"&gt;
 
             &lt;i class="fa" ng-class="{
@@ -429,18 +404,10 @@
                 <h3>Exercise</h3>
                 <br>
                 <ul>
-                    <li>In hello-world.html, within your ng-app, add a new <code>section</code> or <code>div</code> where you set a value to true or false with <code>ng-init</code></li>
-                    <li>Within that section/div, add a button with an <code>ng-click</code> directive that toggles the <code>ng-init</code> value</li>
+                    <li>In hello-world.html, within your ng-app, add a new <code>section</code> or <code>div</code>.</li>
+                    <li>Within that section/div, add a button with an <code>ng-click</code> directive that toggles the value of a <code>showImg</code> variable.</li>
                     <li>Use <code>ng-show</code> or <code>ng-hide</code> to show/hide an image of your pet (or your favorite animal) on click of your button </li>
                 </ul>
-            </section>
-
-            <section>
-                <h3>Note!</h3>
-                <br>
-                <p>It's good to know how ng-init works, but usually you'll use a controller for that purpose</p>
-                <br>
-                <p class="fragment">Before we talk about controllers, let's talk about modules!</p>
             </section>
 
             <section>

@@ -566,42 +566,26 @@ angular
         </section>
 
         <section>
-          <h3>Services &amp; Factories</h3>
+          <h3>Factories</h3>
           <ul>
-            <li>A service is a stateless object that typically handles business logic shared amongst controllers.</li>
-            <li>There are a few ways to create services in Angular.</li>
-            <li>Using the <code>.service()</code> method will create an object with specified methods and return it.</li>
-            <li>Using <code>.factory()</code> will return a function that, when instantiated, returns the object with specified methods.</li>
+            <li>A factory is a singleton object that handles business logic shared throughout the application.</li>
+            <li>We can create a factory using Angular's <code>.factory()</code> function.</li>
           </ul>
-        </section>
 
-        <section>
-          <h3>Services &amp; Factories</h3>
-
-          <pre><code class="javascript" style="font-size: 14px; line-height: 14px;">
-// Service Example
-app.service('MyService', function() {
-  this.method1 = function() {
-    // ...
-  };
-
-  this.method2 = function() {
-    // ...
-  }
-});
-
-// Factory Example
+          <pre><code class="javascript">
 app.factory('MyFactory', function() {
-  var factory = {};
 
-  factory.method1 = function() {
+  var method1 = function() {
     // ...
   };
-  factory.method2 = function() {
+  var method2 = function() {
     // ...
   }
 
-  return factory;
+  return {
+    method1: method1,
+    method2: method2
+  };
 });
           </code></pre>
         </section>
@@ -614,6 +598,7 @@ app.factory('MyFactory', function() {
             </li>
           </ul>
         </section>
+
 
         <section>
           <h3>Dependency Injection</h3>

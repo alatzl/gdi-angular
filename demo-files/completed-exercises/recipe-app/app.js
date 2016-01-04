@@ -3,9 +3,51 @@
   angular
     .module('recipeApp', [])
 
-
-
     .controller('RecipeListCtrl', function(highlightRecipe){
+      var recipe = {
+        name: 'Oatmeal',
+        cookTime: 10,
+        prepTime: 2,
+        ingredients: ['oats', 'water', 'maple syrup'],
+        directions: "Boil the oats in water and add maple syrup to taste",
+        isVegan: true,
+        isPaleo: false,
+        isGlutenFree: true
+      };
+
+      var recipes = [
+        {
+          name: 'Oatmeal',
+          cookTime: 10,
+          prepTime: 2,
+          ingredients: ['oats', 'water', 'maple syrup'],
+          directions: "Boil the oats in water and add maple syrup to taste",
+          isVegan: true,
+          isPaleo: false,
+          isGlutenFree: true
+        },
+        {
+          name: 'Waffles',
+          cookTime: 9,
+          prepTime: 10,
+          ingredients: ['flour', 'water', 'sugar', 'vanilla'],
+          directions: "Mix everything together in a bowl with a whisk. Use a waffle press to make your waffles!",
+          isVegan: false,
+          isPaleo: true,
+          isGlutenFree: false
+        },
+        {
+          name: 'Fruit Salad',
+          cookTime: 0,
+          prepTime: 10,
+          ingredients: ['apples', 'oranges', 'grapes', 'watermelon'],
+          directions: "Chop the fruit and mix together in a bowl",
+          isVegan: true,
+          isPaleo: true,
+          isGlutenFree: true
+        }
+      ];
+      
       // for Exercise 2, with a single object
       // this.recipe = recipe;
 
@@ -13,8 +55,8 @@
       this.recipes = recipes;
 
       // for Exercise 4
-      this.showDetails = function(idx) {
-        highlightRecipe.setHighlighted(this.recipes[idx]);
+      this.showDetails = function(index) {
+        highlightRecipe.setHighlighted(this.recipes[index]);
       };
 
     })
@@ -33,11 +75,6 @@
 
     // for Exercise 4
     .factory('highlightRecipe', function() {
-      var factory = {
-        setHighlighted: setHighlighted,
-        getHighlighted: getHighlighted
-      };
-
       var highlightedRecipe = null;
 
       function setHighlighted(recipe) {
@@ -48,51 +85,9 @@
         return highlightedRecipe;
       }
 
-      return factory;
+      return {
+        setHighlighted: setHighlighted,
+        getHighlighted: getHighlighted
+      };
     });
-
-  var recipe = {
-    name: 'Oatmeal',
-    cookTime: 10,
-    prepTime: 2,
-    ingredients: ['oats', 'water', 'maple syrup'],
-    directions: "Boil the oats in water and add maple syrup to taste",
-    isVegan: true,
-    isPaleo: false,
-    isGlutenFree: true
-  };
-
-  var recipes = [
-    {
-      name: 'Oatmeal',
-      cookTime: 10,
-      prepTime: 2,
-      ingredients: ['oats', 'water', 'maple syrup'],
-      directions: "Boil the oats in water and add maple syrup to taste",
-      isVegan: true,
-      isPaleo: false,
-      isGlutenFree: true
-    },
-    {
-      name: 'Waffles',
-      cookTime: 9,
-      prepTime: 10,
-      ingredients: ['flour', 'water', 'sugar', 'vanilla'],
-      directions: "Mix everything together in a bowl with a whisk. Use a waffle press to make your waffles!",
-      isVegan: false,
-      isPaleo: true,
-      isGlutenFree: false
-    },
-    {
-      name: 'Fruit Salad',
-      cookTime: 0,
-      prepTime: 10,
-      ingredients: ['apples', 'oranges', 'grapes', 'watermelon'],
-      directions: "Chop the fruit and mix together in a bowl",
-      isVegan: true,
-      isPaleo: true,
-      isGlutenFree: true
-    }
-  ];
-
 })();

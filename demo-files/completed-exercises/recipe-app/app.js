@@ -19,8 +19,16 @@
 
     })
 
-    .controller('RecipeDetailsCtrl', ['highlightRecipe', function(highlightRecipe) {
-      this.selectedRecipe = highlightRecipe.getHighlighted();
+    .controller('RecipeDetailsCtrl', ['$scope', 'highlightRecipe', function($scope, highlightRecipe) {
+      var vm = this;
+
+      vm.selectedRecipe = highlightRecipe.getHighlighted();
+
+      $scope.$watch(function() {
+        return highlightRecipe.getHighlighted();
+      }, function(newVal) {
+        vm.selectedRecipe = newVal;
+      });
     }])
 
     // for Exercise 4

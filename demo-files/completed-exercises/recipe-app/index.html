@@ -2,34 +2,34 @@
 <html ng-app="recipeApp">
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-route.min.js"></script>
 		<script src="app.js"></script>
 	</head>
 
 	<body>
-
 		<!-- with an individual object -->
-	  <section ng-controller="RecipeController as recipeCtrl">
+	  <!-- <section ng-controller="RecipeListCtrl as recipeList">
 	  		<h1>How to make {{recipeCtrl.recipe.name}}:</h1>
 	  		<p>Cook Time: {{recipeCtrl.recipe.cookTime}} minutes</p>
 	  		<p>Prep Time: {{recipeCtrl.recipe.prepTime}} minutes</p>
 	  		<ul>
-	  			<li ng-repeat="ingredient in recipeCtrl.recipe.ingredients">{{ingredient}}</li>
+	  			<li ng-repeat="ingredient in recipeList.recipe.ingredients">{{ingredient}}</li>
 	  		</ul>
 	  		<p>{{recipeCtrl.recipe.directions}}</p>
 	  		<p ng-if="recipeCtrl.recipe.isVegan">Vegan</p>
 	  		<p ng-if="recipeCtrl.recipe.isGlutenFree">Gluten Free</p>
 	  		<p ng-if="recipeCtrl.recipe.isPaleo">Paleo</p>
-	  </section>
+	  </section> -->
 
 
 	  <!-- with an array of objects -->
-<!-- 	  	  <section ng-controller="RecipeController as recipeCtrl">
-	  	  	<article ng-repeat="recipe in recipeCtrl.recipes">
+<!-- 	  	  <section ng-controller="RecipeListCtrl as recipeList">
+	  	  <article ng-repeat="recipe in recipeList.recipes">
 		  		<h1>How to make {{recipe.name}}:</h1>
 		  		<p>Cook Time: {{recipe.cookTime}} minutes</p>
 		  		<p>Prep Time: {{recipe.prepTime}} minutes</p>
 		  		<ul>
-		  			<li ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
+		  			<li ng-repeat="ingredient in recipeList.recipe.ingredients">{{ingredient}}</li>
 		  		</ul>
 		  		<p>{{recipe.directions}}</p>
 		  		<p ng-if="recipe.isVegan">Vegan</p>
@@ -37,6 +37,32 @@
 		  		<p ng-if="recipe.isPaleo">Paleo</p>
 		  	</article>
 		  </section> -->
+
+		 <!-- For exercise 4 -->
+
+		<section ng-controller="RecipeListCtrl as recipeCtrl">
+			<ul>
+		 		<li ng-repeat="recipe in recipeCtrl.recipes" ng-click="recipeCtrl.showDetails($index)">{{ recipe.name }}</li>
+		 	</ul>
+		</section>
+
+		<section ng-controller="RecipeDetailsCtrl as recipeDetails">
+			<h1>{{ recipeDetails.foo }}</h1>
+			<h2>_{{ recipeDetails.selectedRecipe }}_</h2>
+			<article>
+	  		<h1>How to make {{recipeDetails.selectedRecipe.name}}:</h1>
+	  		<p>Cook Time: {{recipeDetails.selectedRecipe.cookTime}} minutes</p>
+	  		<p>Prep Time: {{recipeDetails.selectedRecipe.prepTime}} minutes</p>
+	  		<ul>
+	  			<li ng-repeat="ingredient in recipeDetails.selectedRecipe.ingredients">{{ingredient}}</li>
+	  		</ul>
+	  		<p>{{recipeDetails.selectedRecipe.directions}}</p>
+	  		<p ng-if="recipeDetails.selectedRecipe.isVegan">Vegan</p>
+	  		<p ng-if="recipeDetails.selectedRecipe.isGlutenFree">Gluten Free</p>
+	  		<p ng-if="recipeDetails.selectedRecipe.isPaleo">Paleo</p>
+	  	</article>
+		</section>
+
 
 	</body>
 

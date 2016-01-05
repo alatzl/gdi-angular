@@ -566,32 +566,93 @@ angular
         </section>
 
         <section>
+          <h3>Dependency Injection</h3>
+          <ul>
+            <li> Dependency injection is a software pattern that allows us to specify a component's dependencies.</li>
+            <li>Angular comes with a number of dependencies out of the box that we can use within our controllers.</li>
+            <li> For example, we could use the $timeout service provided by Angular in order to force the browser to wait a certain duration before running a given line of code.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Dependency Injection</h3>
+          <ul>
+            <li>To use the $timeout service within a controller, we need to "inject" it, like so:</li>
+          </ul>
+          <pre><code>
+//app.js
+angular
+    .module('todoApp', [])
+    .controller('TodoListController', function($timeout) {
+        var todoList = this;
+
+        todoList.todos = [
+          {text:'learn angular', done:true},
+          {text:'build an angular app', done:false}
+        ];
+
+        $timeout(function() {
+          console.log('I have ' + todoList.todos.length + ' todos.');
+        }, 3000);
+    };
+});
+          </code></pre>
+        </section>
+
+        <section class="smaller-type">
+          <h3>Dependency Injection</h3>
+          <ul>
+            <li>You may also see dependencies injected in an array format with the dependency names as strings.</li>
+          </ul>
+            <pre><code style="font-size: 13px; line-height: 14px;">
+//app.js
+angular
+    .module('todoApp', [])
+    .controller('TodoListController', ['$timeout', function($timeout) {
+        // ...
+    };
+}]);
+          </code></pre>
+          <ul>
+            <li>Dependency injection in Angular relies on the string name of the dependency. When Angular code is minified, however, that name is lost, and Angular no longer knows which dependencies to resolve when it runs your code.</li>
+            <li>Typically, you will probably use a task runner/build manager like Grunt or Gulp to minify your code, and you'll use a plug-in that will add the array annotations for you.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Exercise 4</h3>
+          <ul>
+            <li>In recipe-app/app.js, try adding <code>$timeout</code> as a dependency to one of your controllers. Create a $timeout function that will display the number of recipes available 3 seconds after the page loads.</li>
+          </ul>
+        </section>
+
+        <section>
           <h3>Factories</h3>
           <ul>
             <li>A factory is a singleton object that handles business logic shared throughout the application.</li>
             <li>We can create a factory using Angular's <code>.factory()</code> function.</li>
           </ul>
 
-          <pre><code class="javascript">
-app.factory('MyFactory', function() {
+          <pre><code class="javascript" style="font-size: 14px; line-height: 14px;">
+app.factory('myCalculations', function() {
 
-  var method1 = function() {
-    // ...
+  var add = function(x, y) {
+    return x + y;
   };
-  var method2 = function() {
-    // ...
-  }
+  var squared = function(x) {
+    return x * x;
+  };
 
   return {
-    method1: method1,
-    method2: method2
+    add: add,
+    squared: squared
   };
 });
           </code></pre>
         </section>
 
         <section>
-          <h3>Exercise 4</h3>
+          <h3>Exercise 5</h3>
           <ul>
             <li>We're going to add functionality to highlight a particular recipe.</li>
             <li>In recipe-app/app.js, create a factory that will keep track of the currently highlighted recipe.
@@ -600,7 +661,7 @@ app.factory('MyFactory', function() {
         </section>
 
 
-        <section>
+        <!-- <section>
           <h3>Dependency Injection</h3>
           <ul>
             <li class="fragment">Dependencies are standalone modules that can be pulled into your project for different uses</li>
@@ -655,7 +716,7 @@ angular.module('myApp', ['ngRoute'])
             <li>Move your view code from <code>index.html</code> into a new file, <code>recipes.html</code>.</li>
             <li>Add an element with the <code>ng-view</code> directive. This will be the element that is populated with your template.</li>
           </ul>
-        </section>
+        </section> -->
 
         <section>
           <h3>$scope</h3>

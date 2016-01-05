@@ -116,7 +116,7 @@
           <h3>What is a MV* framework?</h3>
           <ul>
             <li class="fragment">A variation of an MVC (Model View Controller)</li>
-            <li class="fragment">Model &mdash; a type of data to model, like a user, account, photo, or note</li>
+            <li class="fragment">Model &mdash; the business logic of an application, separate from the UI</li>
             <li class="fragment">View &mdash; the markup & templates for the UI</li>
             <li class="fragment">Controller &mdash; handles input & updates state of model</li>
             <li class="fragment">MVC, MVVM, MVVMCS, ...</li>
@@ -412,14 +412,12 @@
         .module('myApp', [])
 
         .controller('MainController', function(){
-            this.cat = cat;
+            this.cat = {
+                name: 'Ms. Whiskers',
+                age: 9,
+                eyes: 'blue'
+            };
         });
-
-    var cat = {
-        name: 'Ms. Whiskers',
-        age: 9,
-        eyes: 'blue'
-    };
 
 })();
           </code></pre>
@@ -468,32 +466,23 @@
         <section>
           <h3>Controllers</h3>
           <p>Often your data will be stored in an array, rather than a single object like we've seen so far</p>
-          <pre><code style="font-size: 12px; line-height:14px">
+          <pre><code style="font-size: 16px;line-height: 17px;">
 (function(){
-    angular
-        .module('myApp', [])
-
+    angular.module('myApp', [])
         .controller('MainController', function(){
-            this.cats = cats;
+            this.cats = [
+                {
+                    name: 'Ms. Whiskers',
+                    age: 9,
+                    eyes: 'blue'
+                },
+                {
+                    name: 'Melvin',
+                    age: 1,
+                    eyes: 'green'
+                }
+            ];
         });
-
-    var cats = [
-        {
-            name: 'Ms. Whiskers',
-            age: 9,
-            eyes: 'blue'
-        },
-        {
-            name: 'Melvin',
-            age: 1,
-            eyes: 'green'
-        },
-        {
-            name: 'Tootsie',
-            age: 3,
-            eyes: 'grey'
-        }
-    ];
 })();
           </code></pre>
         </section>
@@ -529,8 +518,7 @@
           <p>Functions can also be stored as properties</p>
           <pre><code>
 //app.js
-angular
-    .module('todoApp', [])
+angular.module('todoApp', [])
     .controller('TodoListController', function() {
         var todoList = this;
 
@@ -604,15 +592,29 @@ angular
           <ul>
             <li>You may also see dependencies injected in an array format with the dependency names as strings.</li>
           </ul>
-            <pre><code style="font-size: 13px; line-height: 14px;">
-//app.js
-angular
-    .module('todoApp', [])
-    .controller('TodoListController', ['$timeout', function($timeout) {
-        // ...
-    };
-}]);
+          <pre><code style="font-size: 13px; line-height: 14px;">
+// without array annotation
+angular.module('todoApp', [])
+    .controller('TodoListController', function($scope) {
+        $scope.foo = 'does not work';
+    });
+
+// minified
+angular.module('todoApp',[]).controller('TodoListController',function(e){e.foo='does not work'});
+
+// with array annotation
+angular.module('todoApp', [])
+    .controller('TodoListController', ['$scope', function($scope) {
+        $scope.foo = 'works like a charm!'
+    }]);
+
+// when minified:
+angular.module('todoApp',[]).controller('TodoListController',['$scope',function($scope){$scope.foo='works like a charm!'}]);
           </code></pre>
+        </section>
+
+        <section>
+          <h3>Dependency Injection</h3>
           <ul>
             <li>Dependency injection in Angular relies on the string name of the dependency. When Angular code is minified, however, that name is lost, and Angular no longer knows which dependencies to resolve when it runs your code.</li>
             <li>Typically, you will probably use a task runner/build manager like Grunt or Gulp to minify your code, and you'll use a plug-in that will add the array annotations for you.</li>
@@ -635,19 +637,18 @@ angular
 
           <pre><code class="javascript" style="font-size: 14px; line-height: 14px;">
 app.factory('myCalculations', function() {
-
   var add = function(x, y) {
     return x + y;
   };
-  var squared = function(x) {
-    return x * x;
-  };
 
   return {
-    add: add,
-    squared: squared
+    add: add
   };
 });
+
+app.controller('myCtrl', ['myCalculations', function(myCalculations){
+  var sum = myCalculations.add(4, 5); // = 9
+}]);
           </code></pre>
         </section>
 

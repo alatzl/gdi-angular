@@ -1,6 +1,7 @@
 Intro to AngularJS workshop, based on Alexandra Hoefinger's [gdi-angular curriculum](https://github.com/ahoef/gdi-angular) and taught by Alexandra Atzl for GDI Rochester.
 
 Slides: http://alexandraatzl.com/gdi-angular/slides
+
 Demo Files: http://www.alexandraatzl.com/gdi-angular/demo-files.zip
 
 Outline:

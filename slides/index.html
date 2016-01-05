@@ -36,17 +36,9 @@
             <br>
             <br>
             <p>Alexandra Atzl</p>
-            <!-- <a href="http://www.twitter.com/alexandraatzl">@alexandraatzl</a> -->
+            <a href="http://www.alexandraatzl.com">alexandraatzl.com</a>
           </div>
         </section>
-
-    <!--     <section>
-          <br>
-          <p>Wifi: BNGuest</p>
-          <p>Password: </p>
-          <br>
-          <br>
-        </section> -->
 
         <section>
           <h3>Welcome!</h3>
@@ -82,7 +74,7 @@
           <p>Agenda &mdash; Day 2<p>
           <br>
           <ul>
-            <li>Controllers & $scope</li>
+            <li>Controllers &amp; $scope</li>
             <li>Dependency Injection</li>
             <li>Beyond the Basics</li>
             <li>Angular 2.0</li>
@@ -96,7 +88,7 @@
             <ul>
               <li>Who are you?</li>
               <li>What do you hope to get out of the class?</li>
-              <li>Which of your web projects are you most proud of?</li>
+              <li>Who is your favorite superhero?</li>
             </ul>
           </div>
         </section>
@@ -241,9 +233,9 @@
         <section>
           <h3>Exercise</h3>
           <ul>
-            <li>In hello-world.html, within your ng-app, add the markup for a form input field</li>
-            <li>Also add the markup for a heading
-            <li>Bind the value of the input to text within your heading tags by using ng-model </li>
+            <li>In hello-world.html, within your ng-app, add the markup for a form input field.</li>
+            <li>Also add the markup for a heading.</li>
+            <li>Bind the value of the input to text within your heading tags by using ng-model.</li>
             <li>Try to add a few more data-bindings with ng-model!</li>
           </ul>
         </section>
@@ -659,64 +651,6 @@ app.factory('myCalculations', function() {
             </li>
           </ul>
         </section>
-
-
-        <!-- <section>
-          <h3>Dependency Injection</h3>
-          <ul>
-            <li class="fragment">Dependencies are standalone modules that can be pulled into your project for different uses</li>
-            <li class="fragment">They can be included as external files in script tags, or if you're using grunt/gulp, usually they can be included as node modules.</li>
-            <li class="fragment"><code>ngRoute</code> is a module that provides routing and deeplinking services for Angular appications. We can include this with a CDN link as well.</li>
-          </ul>
-          <pre class="fragment"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"&gt;&lt;/script&gt;</code></pre>
-        </section>
-
-        <section>
-          <h3>Dependency Injection</h3>
-          <pre><code style="max-height: 460px">
-angular.module('myApp', ['ngRoute'])
-  .config(function($routeProvider){
-    $routeProvider
-      .when('/home', {
-        templateUrl: 'home.html',
-        controller: 'HomeCtrl',
-        controllerAs: 'home'
-      })
-      .when('/about', {
-        templateUrl: 'about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/home'
-      });
-  })
-  .controller('HomeCtrl', function() {
-    this.pageTitle = 'MY HOMEPAGE';
-  })
-  .controller('AboutCtrl', function() {
-    this.pageTitle = 'ABOUT ME'
-  });
-          </code></pre>
-        </section>
-
-        <section class="smaller-type">
-          <h3>Exercise 4</h3>
-          <ul>
-            <li>Include a script tag in recipe-app/index.html to reference angular-route.js</li>
-            <li>In recipe-app/app.js, include <code>'ngRoute'</code> as a dependency and <code>$routeProvider</code> as an argument in an app config function</li>
-            <li>Create a route called 'home' with a templateUrl and controller. Make this the default route if no other route is specified.</li>
-          </ul>
-        </section>
-
-        <section class="smaller-type">
-          <h3>Exercise 4...continued</h3>
-          <ul>
-            <li>Now we need to create a new file for our view template.</li>
-            <li>Move your view code from <code>index.html</code> into a new file, <code>recipes.html</code>.</li>
-            <li>Add an element with the <code>ng-view</code> directive. This will be the element that is populated with your template.</li>
-          </ul>
-        </section> -->
 
         <section>
           <h3>$scope</h3>

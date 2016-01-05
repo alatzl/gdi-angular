@@ -3,8 +3,9 @@
   angular
     .module('recipeApp', [])
 
-    .controller('RecipeListCtrl', function(highlightRecipe){
-      var recipe = {
+    .controller('RecipeListCtrl', function(highlightRecipe, $timeout){
+      // for Exercise 2, with a single object
+      this.recipe = {
         name: 'Oatmeal',
         cookTime: 10,
         prepTime: 2,
@@ -15,7 +16,8 @@
         isGlutenFree: true
       };
 
-      var recipes = [
+      // for Exercise 3, with an array of objects
+      this.recipes = [
         {
           name: 'Oatmeal',
           cookTime: 10,
@@ -47,20 +49,19 @@
           isGlutenFree: true
         }
       ];
-      
-      // for Exercise 2, with a single object
-      // this.recipe = recipe;
-
-      // for Exercise 3, with an array of objects
-      this.recipes = recipes;
 
       // for Exercise 4
+      $timeout(function() {
+        this.recipeCount = this.recipes.length;
+      }.bind(this), 3000);
+
+      // for Exercise 5
       this.showDetails = function(index) {
         highlightRecipe.setHighlighted(this.recipes[index]);
       };
-
     })
 
+    // for Exercises 5 & 6
     .controller('RecipeDetailsCtrl', ['$scope', 'highlightRecipe', function($scope, highlightRecipe) {
       var vm = this;
 
@@ -73,7 +74,7 @@
       });
     }])
 
-    // for Exercise 4
+    // for Exercise 5
     .factory('highlightRecipe', function() {
       var highlightedRecipe = null;
 
